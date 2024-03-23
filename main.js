@@ -14,8 +14,12 @@ app.use(bodyParser.json({
         req.rawBody = buf
     }
 }))
-app.get('/', (req, res) => {
-    res.send('Express is listening 👂')
+
+app.get('/',(req,res) => {
+res.redirect('/webhook')
+})
+app.get('/webhook', (req, res) => {
+    res.send('GitHubWebHook is listening 👂')
 })
 
 //Respond to webhook
